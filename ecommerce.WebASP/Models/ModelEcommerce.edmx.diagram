@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5df33779cbcb43f78b1e5d80b9d66cd7" Name="Diagram1">
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_CATEGORIA" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_CLIENTE" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_DETALLEIMPUESTO" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_DETALLEPEDIDO" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_DIRECCIONES" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_FORMAPAGO" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_IMPUESTOS" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_PAGOS" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_PEDIDO" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_PRODUCTO" Width="1.5" PointX="8.75" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_ROL" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_USUARIO" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

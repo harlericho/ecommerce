@@ -1,0 +1,566 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="BDDCORDICARRITOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBL_CATEGORIA">
+          <Key>
+            <PropertyRef Name="CAT_ID" />
+          </Key>
+          <Property Name="CAT_ID" Type="smallint" Nullable="false" />
+          <Property Name="CAT_NOMBRE" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CAT_DESCRIPCION" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="CAT_STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CAT_FECHACREACION" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_CLIENTE">
+          <Key>
+            <PropertyRef Name="CLI_ID" />
+            <PropertyRef Name="CLI_IDENTIFICACION" />
+          </Key>
+          <Property Name="CLI_ID" Type="bigint" Nullable="false" />
+          <Property Name="CLI_IDENTIFICACION" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="CLI_TIPOIDENTIFICACION" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="CLI_APELLIDOS" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CLI_NOMBRES" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CLI_GENERO" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CLI_FECHANACIMIENTO" Type="date" Nullable="false" />
+          <Property Name="CLI_TELEFONO" Type="nvarchar" MaxLength="11" />
+          <Property Name="CLI_CELULAR" Type="nvarchar" MaxLength="12" />
+          <Property Name="CLI_EMAIL" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="CLI_STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="CLI_FECHACREACION" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_DETALLEIMPUESTO">
+          <Key>
+            <PropertyRef Name="DIM_ID" />
+            <PropertyRef Name="IMP_ID" />
+          </Key>
+          <Property Name="DIM_ID" Type="int" Nullable="false" />
+          <Property Name="DEP_CODIGO" Type="int" />
+          <Property Name="IMP_ID" Type="int" Nullable="false" />
+          <Property Name="DIM_VALOR" Type="decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="DIM_STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="DIM_FECHACREACION" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_DETALLEPEDIDO">
+          <Key>
+            <PropertyRef Name="DEP_CODIGO" />
+          </Key>
+          <Property Name="DEP_CODIGO" Type="int" Nullable="false" />
+          <Property Name="DEP_CANTIDAD" Type="int" Nullable="false" />
+          <Property Name="DEP_DESCRIPCION" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DEP_PRECIOUNITARIO" Type="decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="DEP_PRECIOTOTAL" Type="decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="DEP_STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PRO_ID" Type="int" />
+          <Property Name="PED_ID" Type="int" />
+          <Property Name="PED_FECHA" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TBL_DIRECCIONES">
+          <Key>
+            <PropertyRef Name="DIR_ID" />
+          </Key>
+          <Property Name="DIR_ID" Type="int" Nullable="false" />
+          <Property Name="DIR_PRINCIPAL" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DIR_SECUNDARIA" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DIR_NUMERACION" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DIR_REFERENCIA" Type="nvarchar" MaxLength="100" />
+          <Property Name="DIR_CODIGOPOSTAL" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="DIR_STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="DIR_FECHACREACION" Type="datetime" Nullable="false" />
+          <Property Name="CLI_ID" Type="bigint" />
+          <Property Name="CLI_IDENTIFICACION" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="TBL_FORMAPAGO">
+          <Key>
+            <PropertyRef Name="FPA_ID" />
+          </Key>
+          <Property Name="FPA_ID" Type="int" Nullable="false" />
+          <Property Name="FPA_DESCRIPCION" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FPA_CODIGOSRI" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="FPA_STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="FPA_FECHACREACION" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_IMPUESTOS">
+          <Key>
+            <PropertyRef Name="IMP_ID" />
+          </Key>
+          <Property Name="IMP_ID" Type="int" Nullable="false" />
+          <Property Name="IMP_CODIGOSRI" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="IMP_DESCRIPCION" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IMP_PORCENTAJE" Type="decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="IMP_STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="IMP_FECHACREACION" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_PAGOS">
+          <Key>
+            <PropertyRef Name="PAG_ID" />
+            <PropertyRef Name="FPA_ID" />
+          </Key>
+          <Property Name="PAG_ID" Type="int" Nullable="false" />
+          <Property Name="PAG_FECHA" Type="datetime" Nullable="false" />
+          <Property Name="PAG_VALOR" Type="decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="PAG_STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PAG_FECHACREACION" Type="datetime" Nullable="false" />
+          <Property Name="PED_ID" Type="int" />
+          <Property Name="PED_FECHA" Type="datetime" />
+          <Property Name="FPA_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_PEDIDO">
+          <Key>
+            <PropertyRef Name="PED_ID" />
+            <PropertyRef Name="PED_FECHA" />
+          </Key>
+          <Property Name="PED_ID" Type="int" Nullable="false" />
+          <Property Name="PED_FECHA" Type="datetime" Nullable="false" />
+          <Property Name="PED_NUMERO" Type="int" Nullable="false" />
+          <Property Name="PED_IDENTIFICACION" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PED_CLIENTE" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="PED_DIRECCION" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="PED_TELEFONO" Type="nvarchar" MaxLength="12" Nullable="false" />
+          <Property Name="PED_SUBTOTAL" Type="decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="PED_TOTAL" Type="decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="PED_STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PED_FECHACREACION" Type="datetime" Nullable="false" />
+          <Property Name="CLI_ID" Type="bigint" />
+          <Property Name="CLI_IDENTIFICACION" Type="nvarchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="TBL_PRODUCTO">
+          <Key>
+            <PropertyRef Name="PRO_ID" />
+          </Key>
+          <Property Name="PRO_ID" Type="int" Nullable="false" />
+          <Property Name="PRO_CODIGO" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PRO_NOMBRE" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="PRO_PRECIOCOMPRA" Type="decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="PRO_PRECIOVENTA" Type="decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="PRO_IMAGEN" Type="nvarchar" MaxLength="200" />
+          <Property Name="PRO_DESCRIPCION" Type="nvarchar" MaxLength="100" />
+          <Property Name="PRO_STOCKMINIMO" Type="int" Nullable="false" />
+          <Property Name="PRO_STOCKMAXIMO" Type="int" Nullable="false" />
+          <Property Name="PRO_STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="PRO_FECHACREACION" Type="datetime" Nullable="false" />
+          <Property Name="CAT_ID" Type="smallint" />
+        </EntityType>
+        <EntityType Name="TBL_ROL">
+          <Key>
+            <PropertyRef Name="ROL_ID" />
+          </Key>
+          <Property Name="ROL_ID" Type="int" Nullable="false" />
+          <Property Name="ROL_DESCRIPCION" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ROL_STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="ROL_ADD" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_USUARIO">
+          <Key>
+            <PropertyRef Name="USU_ID" />
+            <PropertyRef Name="ROL_ID" />
+          </Key>
+          <Property Name="USU_ID" Type="int" Nullable="false" />
+          <Property Name="USU_CORREO" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="USU_PASSWORD" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="USU_APELLIDOS" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="USU_NOMBRES" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="USU_STATUS" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="USU_ADD" Type="datetime" Nullable="false" />
+          <Property Name="ROL_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BDDCORDICARRITOModelStoreContainer">
+          <EntitySet Name="TBL_CATEGORIA" EntityType="Self.TBL_CATEGORIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_CLIENTE" EntityType="Self.TBL_CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_DETALLEIMPUESTO" EntityType="Self.TBL_DETALLEIMPUESTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_DETALLEPEDIDO" EntityType="Self.TBL_DETALLEPEDIDO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_DIRECCIONES" EntityType="Self.TBL_DIRECCIONES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_FORMAPAGO" EntityType="Self.TBL_FORMAPAGO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_IMPUESTOS" EntityType="Self.TBL_IMPUESTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_PAGOS" EntityType="Self.TBL_PAGOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_PEDIDO" EntityType="Self.TBL_PEDIDO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_PRODUCTO" EntityType="Self.TBL_PRODUCTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_ROL" EntityType="Self.TBL_ROL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_USUARIO" EntityType="Self.TBL_USUARIO" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BDDCORDICARRITOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TBL_CATEGORIA">
+          <Key>
+            <PropertyRef Name="CAT_ID" />
+          </Key>
+          <Property Name="CAT_ID" Type="Int16" Nullable="false" />
+          <Property Name="CAT_NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CAT_DESCRIPCION" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CAT_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CAT_FECHACREACION" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TBL_CLIENTE">
+          <Key>
+            <PropertyRef Name="CLI_ID" />
+            <PropertyRef Name="CLI_IDENTIFICACION" />
+          </Key>
+          <Property Name="CLI_ID" Type="Int64" Nullable="false" />
+          <Property Name="CLI_IDENTIFICACION" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CLI_TIPOIDENTIFICACION" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CLI_APELLIDOS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CLI_NOMBRES" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CLI_GENERO" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CLI_FECHANACIMIENTO" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CLI_TELEFONO" Type="String" MaxLength="11" FixedLength="false" Unicode="true" />
+          <Property Name="CLI_CELULAR" Type="String" MaxLength="12" FixedLength="false" Unicode="true" />
+          <Property Name="CLI_EMAIL" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CLI_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CLI_FECHACREACION" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TBL_DETALLEIMPUESTO">
+          <Key>
+            <PropertyRef Name="DIM_ID" />
+            <PropertyRef Name="IMP_ID" />
+          </Key>
+          <Property Name="DIM_ID" Type="Int32" Nullable="false" />
+          <Property Name="DEP_CODIGO" Type="Int32" />
+          <Property Name="IMP_ID" Type="Int32" Nullable="false" />
+          <Property Name="DIM_VALOR" Type="Decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="DIM_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DIM_FECHACREACION" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TBL_DETALLEPEDIDO">
+          <Key>
+            <PropertyRef Name="DEP_CODIGO" />
+          </Key>
+          <Property Name="DEP_CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="DEP_CANTIDAD" Type="Int32" Nullable="false" />
+          <Property Name="DEP_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DEP_PRECIOUNITARIO" Type="Decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="DEP_PRECIOTOTAL" Type="Decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="DEP_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PRO_ID" Type="Int32" />
+          <Property Name="PED_ID" Type="Int32" />
+          <Property Name="PED_FECHA" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TBL_DIRECCIONES">
+          <Key>
+            <PropertyRef Name="DIR_ID" />
+          </Key>
+          <Property Name="DIR_ID" Type="Int32" Nullable="false" />
+          <Property Name="DIR_PRINCIPAL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DIR_SECUNDARIA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DIR_NUMERACION" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DIR_REFERENCIA" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DIR_CODIGOPOSTAL" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DIR_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="DIR_FECHACREACION" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CLI_ID" Type="Int64" />
+          <Property Name="CLI_IDENTIFICACION" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_FORMAPAGO">
+          <Key>
+            <PropertyRef Name="FPA_ID" />
+          </Key>
+          <Property Name="FPA_ID" Type="Int32" Nullable="false" />
+          <Property Name="FPA_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FPA_CODIGOSRI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FPA_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="FPA_FECHACREACION" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TBL_IMPUESTOS">
+          <Key>
+            <PropertyRef Name="IMP_ID" />
+          </Key>
+          <Property Name="IMP_ID" Type="Int32" Nullable="false" />
+          <Property Name="IMP_CODIGOSRI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IMP_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IMP_PORCENTAJE" Type="Decimal" Precision="8" Scale="2" Nullable="false" />
+          <Property Name="IMP_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="IMP_FECHACREACION" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TBL_PAGOS">
+          <Key>
+            <PropertyRef Name="PAG_ID" />
+            <PropertyRef Name="FPA_ID" />
+          </Key>
+          <Property Name="PAG_ID" Type="Int32" Nullable="false" />
+          <Property Name="PAG_FECHA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PAG_VALOR" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="PAG_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PAG_FECHACREACION" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PED_ID" Type="Int32" />
+          <Property Name="PED_FECHA" Type="DateTime" Precision="3" />
+          <Property Name="FPA_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TBL_PEDIDO">
+          <Key>
+            <PropertyRef Name="PED_ID" />
+            <PropertyRef Name="PED_FECHA" />
+          </Key>
+          <Property Name="PED_ID" Type="Int32" Nullable="false" />
+          <Property Name="PED_FECHA" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PED_NUMERO" Type="Int32" Nullable="false" />
+          <Property Name="PED_IDENTIFICACION" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PED_CLIENTE" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PED_DIRECCION" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PED_TELEFONO" Type="String" MaxLength="12" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PED_SUBTOTAL" Type="Decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="PED_TOTAL" Type="Decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="PED_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PED_FECHACREACION" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CLI_ID" Type="Int64" />
+          <Property Name="CLI_IDENTIFICACION" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_PRODUCTO">
+          <Key>
+            <PropertyRef Name="PRO_ID" />
+          </Key>
+          <Property Name="PRO_ID" Type="Int32" Nullable="false" />
+          <Property Name="PRO_CODIGO" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PRO_NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PRO_PRECIOCOMPRA" Type="Decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="PRO_PRECIOVENTA" Type="Decimal" Precision="8" Scale="4" Nullable="false" />
+          <Property Name="PRO_IMAGEN" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="PRO_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PRO_STOCKMINIMO" Type="Int32" Nullable="false" />
+          <Property Name="PRO_STOCKMAXIMO" Type="Int32" Nullable="false" />
+          <Property Name="PRO_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="PRO_FECHACREACION" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CAT_ID" Type="Int16" />
+        </EntityType>
+        <EntityType Name="TBL_ROL">
+          <Key>
+            <PropertyRef Name="ROL_ID" />
+          </Key>
+          <Property Name="ROL_ID" Type="Int32" Nullable="false" />
+          <Property Name="ROL_DESCRIPCION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ROL_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ROL_ADD" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TBL_USUARIO">
+          <Key>
+            <PropertyRef Name="USU_ID" />
+            <PropertyRef Name="ROL_ID" />
+          </Key>
+          <Property Name="USU_ID" Type="Int32" Nullable="false" />
+          <Property Name="USU_CORREO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="USU_PASSWORD" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="USU_APELLIDOS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="USU_NOMBRES" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="USU_STATUS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="USU_ADD" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ROL_ID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="BDDCORDICARRITOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBL_CATEGORIA" EntityType="Self.TBL_CATEGORIA" />
+          <EntitySet Name="TBL_CLIENTE" EntityType="Self.TBL_CLIENTE" />
+          <EntitySet Name="TBL_DETALLEIMPUESTO" EntityType="Self.TBL_DETALLEIMPUESTO" />
+          <EntitySet Name="TBL_DETALLEPEDIDO" EntityType="Self.TBL_DETALLEPEDIDO" />
+          <EntitySet Name="TBL_DIRECCIONES" EntityType="Self.TBL_DIRECCIONES" />
+          <EntitySet Name="TBL_FORMAPAGO" EntityType="Self.TBL_FORMAPAGO" />
+          <EntitySet Name="TBL_IMPUESTOS" EntityType="Self.TBL_IMPUESTOS" />
+          <EntitySet Name="TBL_PAGOS" EntityType="Self.TBL_PAGOS" />
+          <EntitySet Name="TBL_PEDIDO" EntityType="Self.TBL_PEDIDO" />
+          <EntitySet Name="TBL_PRODUCTO" EntityType="Self.TBL_PRODUCTO" />
+          <EntitySet Name="TBL_ROL" EntityType="Self.TBL_ROL" />
+          <EntitySet Name="TBL_USUARIO" EntityType="Self.TBL_USUARIO" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BDDCORDICARRITOModelStoreContainer" CdmEntityContainer="BDDCORDICARRITOEntities">
+          <EntitySetMapping Name="TBL_CATEGORIA">
+            <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_CATEGORIA">
+              <MappingFragment StoreEntitySet="TBL_CATEGORIA">
+                <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+                <ScalarProperty Name="CAT_NOMBRE" ColumnName="CAT_NOMBRE" />
+                <ScalarProperty Name="CAT_DESCRIPCION" ColumnName="CAT_DESCRIPCION" />
+                <ScalarProperty Name="CAT_STATUS" ColumnName="CAT_STATUS" />
+                <ScalarProperty Name="CAT_FECHACREACION" ColumnName="CAT_FECHACREACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_CLIENTE">
+            <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_CLIENTE">
+              <MappingFragment StoreEntitySet="TBL_CLIENTE">
+                <ScalarProperty Name="CLI_ID" ColumnName="CLI_ID" />
+                <ScalarProperty Name="CLI_IDENTIFICACION" ColumnName="CLI_IDENTIFICACION" />
+                <ScalarProperty Name="CLI_TIPOIDENTIFICACION" ColumnName="CLI_TIPOIDENTIFICACION" />
+                <ScalarProperty Name="CLI_APELLIDOS" ColumnName="CLI_APELLIDOS" />
+                <ScalarProperty Name="CLI_NOMBRES" ColumnName="CLI_NOMBRES" />
+                <ScalarProperty Name="CLI_GENERO" ColumnName="CLI_GENERO" />
+                <ScalarProperty Name="CLI_FECHANACIMIENTO" ColumnName="CLI_FECHANACIMIENTO" />
+                <ScalarProperty Name="CLI_TELEFONO" ColumnName="CLI_TELEFONO" />
+                <ScalarProperty Name="CLI_CELULAR" ColumnName="CLI_CELULAR" />
+                <ScalarProperty Name="CLI_EMAIL" ColumnName="CLI_EMAIL" />
+                <ScalarProperty Name="CLI_STATUS" ColumnName="CLI_STATUS" />
+                <ScalarProperty Name="CLI_FECHACREACION" ColumnName="CLI_FECHACREACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_DETALLEIMPUESTO">
+            <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_DETALLEIMPUESTO">
+              <MappingFragment StoreEntitySet="TBL_DETALLEIMPUESTO">
+                <ScalarProperty Name="DIM_ID" ColumnName="DIM_ID" />
+                <ScalarProperty Name="DEP_CODIGO" ColumnName="DEP_CODIGO" />
+                <ScalarProperty Name="IMP_ID" ColumnName="IMP_ID" />
+                <ScalarProperty Name="DIM_VALOR" ColumnName="DIM_VALOR" />
+                <ScalarProperty Name="DIM_STATUS" ColumnName="DIM_STATUS" />
+                <ScalarProperty Name="DIM_FECHACREACION" ColumnName="DIM_FECHACREACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_DETALLEPEDIDO">
+            <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_DETALLEPEDIDO">
+              <MappingFragment StoreEntitySet="TBL_DETALLEPEDIDO">
+                <ScalarProperty Name="DEP_CODIGO" ColumnName="DEP_CODIGO" />
+                <ScalarProperty Name="DEP_CANTIDAD" ColumnName="DEP_CANTIDAD" />
+                <ScalarProperty Name="DEP_DESCRIPCION" ColumnName="DEP_DESCRIPCION" />
+                <ScalarProperty Name="DEP_PRECIOUNITARIO" ColumnName="DEP_PRECIOUNITARIO" />
+                <ScalarProperty Name="DEP_PRECIOTOTAL" ColumnName="DEP_PRECIOTOTAL" />
+                <ScalarProperty Name="DEP_STATUS" ColumnName="DEP_STATUS" />
+                <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
+                <ScalarProperty Name="PED_ID" ColumnName="PED_ID" />
+                <ScalarProperty Name="PED_FECHA" ColumnName="PED_FECHA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_DIRECCIONES">
+            <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_DIRECCIONES">
+              <MappingFragment StoreEntitySet="TBL_DIRECCIONES">
+                <ScalarProperty Name="DIR_ID" ColumnName="DIR_ID" />
+                <ScalarProperty Name="DIR_PRINCIPAL" ColumnName="DIR_PRINCIPAL" />
+                <ScalarProperty Name="DIR_SECUNDARIA" ColumnName="DIR_SECUNDARIA" />
+                <ScalarProperty Name="DIR_NUMERACION" ColumnName="DIR_NUMERACION" />
+                <ScalarProperty Name="DIR_REFERENCIA" ColumnName="DIR_REFERENCIA" />
+                <ScalarProperty Name="DIR_CODIGOPOSTAL" ColumnName="DIR_CODIGOPOSTAL" />
+                <ScalarProperty Name="DIR_STATUS" ColumnName="DIR_STATUS" />
+                <ScalarProperty Name="DIR_FECHACREACION" ColumnName="DIR_FECHACREACION" />
+                <ScalarProperty Name="CLI_ID" ColumnName="CLI_ID" />
+                <ScalarProperty Name="CLI_IDENTIFICACION" ColumnName="CLI_IDENTIFICACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_FORMAPAGO">
+            <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_FORMAPAGO">
+              <MappingFragment StoreEntitySet="TBL_FORMAPAGO">
+                <ScalarProperty Name="FPA_ID" ColumnName="FPA_ID" />
+                <ScalarProperty Name="FPA_DESCRIPCION" ColumnName="FPA_DESCRIPCION" />
+                <ScalarProperty Name="FPA_CODIGOSRI" ColumnName="FPA_CODIGOSRI" />
+                <ScalarProperty Name="FPA_STATUS" ColumnName="FPA_STATUS" />
+                <ScalarProperty Name="FPA_FECHACREACION" ColumnName="FPA_FECHACREACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_IMPUESTOS">
+            <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_IMPUESTOS">
+              <MappingFragment StoreEntitySet="TBL_IMPUESTOS">
+                <ScalarProperty Name="IMP_ID" ColumnName="IMP_ID" />
+                <ScalarProperty Name="IMP_CODIGOSRI" ColumnName="IMP_CODIGOSRI" />
+                <ScalarProperty Name="IMP_DESCRIPCION" ColumnName="IMP_DESCRIPCION" />
+                <ScalarProperty Name="IMP_PORCENTAJE" ColumnName="IMP_PORCENTAJE" />
+                <ScalarProperty Name="IMP_STATUS" ColumnName="IMP_STATUS" />
+                <ScalarProperty Name="IMP_FECHACREACION" ColumnName="IMP_FECHACREACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_PAGOS">
+            <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_PAGOS">
+              <MappingFragment StoreEntitySet="TBL_PAGOS">
+                <ScalarProperty Name="PAG_ID" ColumnName="PAG_ID" />
+                <ScalarProperty Name="PAG_FECHA" ColumnName="PAG_FECHA" />
+                <ScalarProperty Name="PAG_VALOR" ColumnName="PAG_VALOR" />
+                <ScalarProperty Name="PAG_STATUS" ColumnName="PAG_STATUS" />
+                <ScalarProperty Name="PAG_FECHACREACION" ColumnName="PAG_FECHACREACION" />
+                <ScalarProperty Name="PED_ID" ColumnName="PED_ID" />
+                <ScalarProperty Name="PED_FECHA" ColumnName="PED_FECHA" />
+                <ScalarProperty Name="FPA_ID" ColumnName="FPA_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_PEDIDO">
+            <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_PEDIDO">
+              <MappingFragment StoreEntitySet="TBL_PEDIDO">
+                <ScalarProperty Name="PED_ID" ColumnName="PED_ID" />
+                <ScalarProperty Name="PED_FECHA" ColumnName="PED_FECHA" />
+                <ScalarProperty Name="PED_NUMERO" ColumnName="PED_NUMERO" />
+                <ScalarProperty Name="PED_IDENTIFICACION" ColumnName="PED_IDENTIFICACION" />
+                <ScalarProperty Name="PED_CLIENTE" ColumnName="PED_CLIENTE" />
+                <ScalarProperty Name="PED_DIRECCION" ColumnName="PED_DIRECCION" />
+                <ScalarProperty Name="PED_TELEFONO" ColumnName="PED_TELEFONO" />
+                <ScalarProperty Name="PED_SUBTOTAL" ColumnName="PED_SUBTOTAL" />
+                <ScalarProperty Name="PED_TOTAL" ColumnName="PED_TOTAL" />
+                <ScalarProperty Name="PED_STATUS" ColumnName="PED_STATUS" />
+                <ScalarProperty Name="PED_FECHACREACION" ColumnName="PED_FECHACREACION" />
+                <ScalarProperty Name="CLI_ID" ColumnName="CLI_ID" />
+                <ScalarProperty Name="CLI_IDENTIFICACION" ColumnName="CLI_IDENTIFICACION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_PRODUCTO">
+            <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_PRODUCTO">
+              <MappingFragment StoreEntitySet="TBL_PRODUCTO">
+                <ScalarProperty Name="PRO_ID" ColumnName="PRO_ID" />
+                <ScalarProperty Name="PRO_CODIGO" ColumnName="PRO_CODIGO" />
+                <ScalarProperty Name="PRO_NOMBRE" ColumnName="PRO_NOMBRE" />
+                <ScalarProperty Name="PRO_PRECIOCOMPRA" ColumnName="PRO_PRECIOCOMPRA" />
+                <ScalarProperty Name="PRO_PRECIOVENTA" ColumnName="PRO_PRECIOVENTA" />
+                <ScalarProperty Name="PRO_IMAGEN" ColumnName="PRO_IMAGEN" />
+                <ScalarProperty Name="PRO_DESCRIPCION" ColumnName="PRO_DESCRIPCION" />
+                <ScalarProperty Name="PRO_STOCKMINIMO" ColumnName="PRO_STOCKMINIMO" />
+                <ScalarProperty Name="PRO_STOCKMAXIMO" ColumnName="PRO_STOCKMAXIMO" />
+                <ScalarProperty Name="PRO_STATUS" ColumnName="PRO_STATUS" />
+                <ScalarProperty Name="PRO_FECHACREACION" ColumnName="PRO_FECHACREACION" />
+                <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_ROL">
+            <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_ROL">
+              <MappingFragment StoreEntitySet="TBL_ROL">
+                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+                <ScalarProperty Name="ROL_DESCRIPCION" ColumnName="ROL_DESCRIPCION" />
+                <ScalarProperty Name="ROL_STATUS" ColumnName="ROL_STATUS" />
+                <ScalarProperty Name="ROL_ADD" ColumnName="ROL_ADD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_USUARIO">
+            <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_USUARIO">
+              <MappingFragment StoreEntitySet="TBL_USUARIO">
+                <ScalarProperty Name="USU_ID" ColumnName="USU_ID" />
+                <ScalarProperty Name="USU_CORREO" ColumnName="USU_CORREO" />
+                <ScalarProperty Name="USU_PASSWORD" ColumnName="USU_PASSWORD" />
+                <ScalarProperty Name="USU_APELLIDOS" ColumnName="USU_APELLIDOS" />
+                <ScalarProperty Name="USU_NOMBRES" ColumnName="USU_NOMBRES" />
+                <ScalarProperty Name="USU_STATUS" ColumnName="USU_STATUS" />
+                <ScalarProperty Name="USU_ADD" ColumnName="USU_ADD" />
+                <ScalarProperty Name="ROL_ID" ColumnName="ROL_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
