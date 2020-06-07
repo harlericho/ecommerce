@@ -68,5 +68,15 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
         {
             newProduct();
         }
+
+        protected void lnkGuardar_Click(object sender, EventArgs e)
+        {
+            saveProduct();
+        }
+
+        protected void lnkNuevo_Click(object sender, EventArgs e)
+        {
+            newProduct();
+        }
     }
 }
