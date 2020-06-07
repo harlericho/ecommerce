@@ -132,6 +132,9 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="UserControl\ucCategoria.ascx" />
+    <Content Include="WebForms\Administracion\Producto\wfmProductoLista.aspx" />
+    <Content Include="WebForms\Administracion\Producto\wfmProductoNuevo.aspx" />
     <EntityDeploy Include="Models\ModelEcommerce.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelEcommerce.Designer.cs</LastGenOutput>
@@ -211,6 +214,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logica\LogicaCategoria.cs" />
+    <Compile Include="Logica\LogicaProducto.cs" />
     <Compile Include="Models\ModelEcommerce.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -277,6 +282,13 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\ucCategoria.ascx.cs">
+      <DependentUpon>ucCategoria.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\ucCategoria.ascx.designer.cs">
+      <DependentUpon>ucCategoria.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -284,9 +296,25 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="WebForms\Administracion\Producto\wfmProductoLista.aspx.cs">
+      <DependentUpon>wfmProductoLista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\Administracion\Producto\wfmProductoLista.aspx.designer.cs">
+      <DependentUpon>wfmProductoLista.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\Administracion\Producto\wfmProductoNuevo.aspx.cs">
+      <DependentUpon>wfmProductoNuevo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\Administracion\Producto\wfmProductoNuevo.aspx.designer.cs">
+      <DependentUpon>wfmProductoNuevo.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="WebForms\Administracion\Categoria\" />
+    <Folder Include="WebForms\Public\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
