@@ -134,6 +134,8 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Icons\new_product.png" />
     <Content Include="Icons\save_product.png" />
+    <Content Include="Images\avatar.png" />
+    <Content Include="Images\preview-icon.png" />
     <Content Include="UserControl\ucCategoria.ascx" />
     <Content Include="WebForms\Administracion\Producto\wfmProductoLista.aspx" />
     <Content Include="WebForms\Administracion\Producto\wfmProductoNuevo.aspx" />

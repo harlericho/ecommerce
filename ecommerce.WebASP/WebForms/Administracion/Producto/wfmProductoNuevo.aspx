@@ -19,18 +19,16 @@
                     <tr>
                         <td>
                             <asp:LinkButton ID="lnkNuevo" runat="server" CausesValidation="false" OnClick="lnkNuevo_Click">Nuevo</asp:LinkButton>
-                            <asp:ImageButton ID="ImbNuevo" runat="server" ImageUrl="~/Icons/new_product.png" Width="30px" Height="30px" OnClick="ImbNuevo_Click" CausesValidation="false"/>
+                            <asp:ImageButton ID="ImbNuevo" runat="server" ImageUrl="~/Icons/new_product.png" Width="30px" Height="30px" OnClick="ImbNuevo_Click" CausesValidation="false" />
                         </td>
                         <td>
-                            <asp:LinkButton ID="lnkGuardar" runat="server" OnClick="lnkGuardar_Click" >Guardar</asp:LinkButton>
-                            <asp:ImageButton ID="ImbGuardar" runat="server" ImageUrl="~/Icons/save_product.png" Width="30px" Height="30px" OnClick="ImbGuardar_Click"/>
+                            <asp:LinkButton ID="lnkGuardar" runat="server" OnClick="lnkGuardar_Click">Guardar</asp:LinkButton>
+                            <asp:ImageButton ID="ImbGuardar" runat="server" ImageUrl="~/Icons/save_product.png" Width="30px" Height="30px" OnClick="ImbGuardar_Click" />
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            &nbsp;</td>
-                        <td>
-                            &nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
                     </tr>
                 </table>
             </td>
@@ -86,7 +84,16 @@
             <td style="width: 150px">Imagen
             </td>
             <td>
-                <asp:FileUpload ID="fileuImagen" runat="server" />
+                <asp:FileUpload ID="fileImagen" runat="server"/>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"  ErrorMessage="Imagen requerida" ControlToValidate="fileImagen" ForeColor="Red">*</asp:RequiredFieldValidator>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 150px">
+                <asp:Image ID="Avatar" runat="server" Height="94px" ImageUrl="~/Images/preview-icon.png" Width="101px" />
+            </td>
+            <td>
+                <asp:Button ID="btnMostrar" runat="server" Text="Mostrar" OnClick="btnMostrar_Click" />
             </td>
         </tr>
         <tr>
@@ -94,7 +101,6 @@
             </td>
             <td>
                 <asp:TextBox ID="txtDescripcion" runat="server"></asp:TextBox>
-<%--                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Descripcion requerido" ControlToValidate="txtDescripcion" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
             </td>
         </tr>
         <tr>
@@ -116,8 +122,7 @@
 
         <tr>
             <td style="width: 150px">&nbsp;</td>
-            <td>
-                &nbsp;</td>
+            <td>&nbsp;</td>
         </tr>
 
         <tr>
