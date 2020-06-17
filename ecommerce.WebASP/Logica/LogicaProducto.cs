@@ -20,7 +20,7 @@ namespace ecommerce.WebASP.Logica
         {
             try
             {
-                return await db.TBL_PRODUCTO.Where(data => data.PRO_STATUS.Equals("A")).ToListAsync();
+                return await db.TBL_PRODUCTO.Where(data => data.pro_status.Equals("A")).ToListAsync();
             }
             catch (Exception ex)
             {
@@ -34,8 +34,8 @@ namespace ecommerce.WebASP.Logica
         {
             try
             {
-                return await db.TBL_PRODUCTO.Where(data => data.PRO_STATUS.Equals("A")
-                && data.PRO_ID.Equals(codigo)).FirstOrDefaultAsync();
+                return await db.TBL_PRODUCTO.Where(data => data.pro_status.Equals("A")
+                && data.pro_id.Equals(codigo)).FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {
@@ -49,8 +49,8 @@ namespace ecommerce.WebASP.Logica
         {
             try
             {
-                return await db.TBL_PRODUCTO.Where(data => data.PRO_STATUS.Equals('A')
-                && data.PRO_CODIGO.Equals(codigo)).FirstOrDefaultAsync();
+                return await db.TBL_PRODUCTO.Where(data => data.pro_status.Equals('A')
+                && data.pro_codigo.Equals(codigo)).FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {
@@ -65,8 +65,8 @@ namespace ecommerce.WebASP.Logica
             try
             {
                 bool resultado = false;
-                _infoProducto.PRO_STATUS = "A";
-                _infoProducto.PRO_FECHACREACION = DateTime.Now;
+                _infoProducto.pro_status = "A";
+                _infoProducto.pro_fechacreacion = DateTime.Now;
                 db.TBL_PRODUCTO.Add(_infoProducto);
 
                 //actualiza el contexto de datos
@@ -87,7 +87,7 @@ namespace ecommerce.WebASP.Logica
             try
             {
                 bool resultado = false;
-                _infoProducto.PRO_FECHACREACION = DateTime.Now;
+                _infoProducto.pro_fechacreacion = DateTime.Now;
                 db.TBL_PRODUCTO.Add(_infoProducto);
 
                 //actualiza el contexto de datos
@@ -112,8 +112,8 @@ namespace ecommerce.WebASP.Logica
                 //db.TBL_PRODUCTO.Remove(_infoProducto);
 
 
-                _infoProducto.PRO_STATUS = "I";
-                _infoProducto.PRO_FECHACREACION = DateTime.Now;
+                _infoProducto.pro_status = "I";
+                _infoProducto.pro_fechacreacion = DateTime.Now;
 
                 //actualiza el contexto de datos
                 await db.SaveChangesAsync();

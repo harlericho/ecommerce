@@ -14,18 +14,30 @@ namespace ecommerce.WebASP.Models
     
     public partial class TBL_PEDIDO
     {
-        public int PED_ID { get; set; }
-        public System.DateTime PED_FECHA { get; set; }
-        public int PED_NUMERO { get; set; }
-        public string PED_IDENTIFICACION { get; set; }
-        public string PED_CLIENTE { get; set; }
-        public string PED_DIRECCION { get; set; }
-        public string PED_TELEFONO { get; set; }
-        public decimal PED_SUBTOTAL { get; set; }
-        public decimal PED_TOTAL { get; set; }
-        public string PED_STATUS { get; set; }
-        public System.DateTime PED_FECHACREACION { get; set; }
-        public Nullable<long> CLI_ID { get; set; }
-        public string CLI_IDENTIFICACION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBL_PEDIDO()
+        {
+            this.TBL_DETALLEPEDIDO = new HashSet<TBL_DETALLEPEDIDO>();
+            this.TBL_PAGOS = new HashSet<TBL_PAGOS>();
+        }
+    
+        public int ped_id { get; set; }
+        public System.DateTime ped_fecha { get; set; }
+        public int ped_numero { get; set; }
+        public string ped_identificacion { get; set; }
+        public string ped_cliente { get; set; }
+        public string ped_direccion { get; set; }
+        public string ped_telefono { get; set; }
+        public decimal ped_subtotal { get; set; }
+        public decimal ped_total { get; set; }
+        public System.DateTime ped_fechacreacion { get; set; }
+        public string ped_status { get; set; }
+        public Nullable<long> cli_id { get; set; }
+    
+        public virtual TBL_CLIENTE TBL_CLIENTE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_DETALLEPEDIDO> TBL_DETALLEPEDIDO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_PAGOS> TBL_PAGOS { get; set; }
     }
 }

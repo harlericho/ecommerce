@@ -30,7 +30,7 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
             txtPrv.Text = "";
             txtStockMax.Text = "";
             txtStockMin.Text = "";
-            Avatar.ImageUrl = "~/Images/preview-icon.png";
+            //Avatar.ImageUrl = "~/Images/preview-icon.png";
             UC_Categoria1.DropDownList.SelectedIndex = 0;
         }
         private void saveProduct()
@@ -38,16 +38,16 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
             try
             {
                 TBL_PRODUCTO _infoProducto = new TBL_PRODUCTO();
-                _infoProducto.PRO_ID = 100;
-                _infoProducto.CAT_ID = Convert.ToInt16(UC_Categoria1.DropDownList.SelectedValue);
-                _infoProducto.PRO_CODIGO = txtCodigo.Text;
-                _infoProducto.PRO_NOMBRE = txtNombre.Text;
-                _infoProducto.PRO_DESCRIPCION = txtDescripcion.Text;
-                _infoProducto.PRO_IMAGEN = "C:/imagen";
-                _infoProducto.PRO_PRECIOCOMPRA = Convert.ToDecimal(txtPrc.Text);
-                _infoProducto.PRO_PRECIOVENTA = Convert.ToDecimal(txtPrv.Text);
-                _infoProducto.PRO_STOCKMINIMO = Convert.ToInt32(txtStockMin.Text);
-                _infoProducto.PRO_STOCKMAXIMO = Convert.ToInt32(txtStockMax.Text);
+                _infoProducto.pro_id = 100;
+                _infoProducto.cat_id = Convert.ToInt16(UC_Categoria1.DropDownList.SelectedValue);
+                _infoProducto.pro_codigo = txtCodigo.Text;
+                _infoProducto.pro_nombre = txtNombre.Text;
+                _infoProducto.pro_descripcion = txtDescripcion.Text;
+                _infoProducto.pro_imagen = "C:/imagen";
+                _infoProducto.pro_preciocompra = Convert.ToDecimal(txtPrc.Text);
+                _infoProducto.pro_precioventa = Convert.ToDecimal(txtPrv.Text);
+                _infoProducto.pro_stockminimo = Convert.ToInt32(txtStockMin.Text);
+                _infoProducto.pro_stockmaximo = Convert.ToInt32(txtStockMax.Text);
                 Task<bool> _taskSaveProduct = Task.Run(() => LogicaProducto.saveProduct(_infoProducto));
                 _taskSaveProduct.Wait();
                 var resultado = _taskSaveProduct.Result;
@@ -84,20 +84,20 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
             newProduct();
         }
 
-        protected void btnMostrar_Click(object sender, EventArgs e)
-        {
-            uploadImage();
-        }
+        //protected void btnMostrar_Click(object sender, EventArgs e)
+        //{
+        //    uploadImage();
+        //}
 
-        private void uploadImage() 
-        {
-            int tamaño = fileImagen.PostedFile.ContentLength;//se crea un tamaño de imagen, esto devuelve el tamaño de la imagen que el usuario envia
-            byte[] imagen = new byte[tamaño];//creamos un arreglo de byte del tamaño de la imagen definida
-            fileImagen.PostedFile.InputStream.Read(imagen, 0, tamaño);//lee la imagen original a partir del elemento fileupload
-            Bitmap imagenBinaria = new Bitmap(fileImagen.PostedFile.InputStream);//convierte o prepara la imagen a binaria
-            string imagendata = "data:image/jpg;base64," + Convert.ToBase64String(imagen);//convierte la imagen a un equivalente a un dato binario de base 64
-            Avatar.ImageUrl = imagendata;//visualizamos la imagen bianria base 64 al url imagen
-        }
+        //private void uploadImage() 
+        //{
+        //    int tamaño = fileImagen.PostedFile.ContentLength;//se crea un tamaño de imagen, esto devuelve el tamaño de la imagen que el usuario envia
+        //    byte[] imagen = new byte[tamaño];//creamos un arreglo de byte del tamaño de la imagen definida
+        //    fileImagen.PostedFile.InputStream.Read(imagen, 0, tamaño);//lee la imagen original a partir del elemento fileupload
+        //    Bitmap imagenBinaria = new Bitmap(fileImagen.PostedFile.InputStream);//convierte o prepara la imagen a binaria
+        //    string imagendata = "data:image/jpg;base64," + Convert.ToBase64String(imagen);//convierte la imagen a un equivalente a un dato binario de base 64
+        //    Avatar.ImageUrl = imagendata;//visualizamos la imagen bianria base 64 al url imagen
+        //}
 
         
     }

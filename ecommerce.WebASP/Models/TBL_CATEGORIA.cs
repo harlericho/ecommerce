@@ -14,10 +14,19 @@ namespace ecommerce.WebASP.Models
     
     public partial class TBL_CATEGORIA
     {
-        public short CAT_ID { get; set; }
-        public string CAT_NOMBRE { get; set; }
-        public string CAT_DESCRIPCION { get; set; }
-        public string CAT_STATUS { get; set; }
-        public System.DateTime CAT_FECHACREACION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBL_CATEGORIA()
+        {
+            this.TBL_PRODUCTO = new HashSet<TBL_PRODUCTO>();
+        }
+    
+        public short cat_id { get; set; }
+        public string cat_nombre { get; set; }
+        public string cat_descripcion { get; set; }
+        public System.DateTime cat_fechacreacion { get; set; }
+        public string cat_status { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_PRODUCTO> TBL_PRODUCTO { get; set; }
     }
 }

@@ -14,10 +14,19 @@ namespace ecommerce.WebASP.Models
     
     public partial class TBL_FORMAPAGO
     {
-        public int FPA_ID { get; set; }
-        public string FPA_DESCRIPCION { get; set; }
-        public string FPA_CODIGOSRI { get; set; }
-        public string FPA_STATUS { get; set; }
-        public System.DateTime FPA_FECHACREACION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBL_FORMAPAGO()
+        {
+            this.TBL_PAGOS = new HashSet<TBL_PAGOS>();
+        }
+    
+        public byte fpa_id { get; set; }
+        public string fpa_descripcion { get; set; }
+        public string fpa_codigosri { get; set; }
+        public System.DateTime fpa_fechacreacion { get; set; }
+        public string fpa_status { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_PAGOS> TBL_PAGOS { get; set; }
     }
 }

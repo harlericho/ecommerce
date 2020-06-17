@@ -14,13 +14,15 @@ namespace ecommerce.WebASP.Models
     
     public partial class TBL_USUARIO
     {
-        public int USU_ID { get; set; }
-        public string USU_CORREO { get; set; }
-        public string USU_PASSWORD { get; set; }
-        public string USU_APELLIDOS { get; set; }
-        public string USU_NOMBRES { get; set; }
-        public string USU_STATUS { get; set; }
-        public System.DateTime USU_ADD { get; set; }
-        public int ROL_ID { get; set; }
+        public int usu_id { get; set; }
+        public string usu_correo { get; set; }
+        public string usu_password { get; set; }
+        public string usu_apellidos { get; set; }
+        public string usu_nombres { get; set; }
+        public string usu_status { get; set; }
+        public System.DateTime usu_add { get; set; }
+        public Nullable<byte> rol_id { get; set; }
+    
+        public virtual TBL_ROL TBL_ROL { get; set; }
     }
 }

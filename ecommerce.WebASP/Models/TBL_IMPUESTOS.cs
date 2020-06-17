@@ -14,11 +14,20 @@ namespace ecommerce.WebASP.Models
     
     public partial class TBL_IMPUESTOS
     {
-        public int IMP_ID { get; set; }
-        public string IMP_CODIGOSRI { get; set; }
-        public string IMP_DESCRIPCION { get; set; }
-        public decimal IMP_PORCENTAJE { get; set; }
-        public string IMP_STATUS { get; set; }
-        public System.DateTime IMP_FECHACREACION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBL_IMPUESTOS()
+        {
+            this.TBL_DETALLEIMPUESTOS = new HashSet<TBL_DETALLEIMPUESTOS>();
+        }
+    
+        public int imp_id { get; set; }
+        public string imp_codigosri { get; set; }
+        public string imp_descripcion { get; set; }
+        public decimal imp_porcentaje { get; set; }
+        public System.DateTime imp_fechacreacion { get; set; }
+        public string imp_status { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_DETALLEIMPUESTOS> TBL_DETALLEIMPUESTOS { get; set; }
     }
 }

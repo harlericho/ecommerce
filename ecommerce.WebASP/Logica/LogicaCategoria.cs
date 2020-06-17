@@ -16,7 +16,7 @@ namespace ecommerce.WebASP.Logica
         {
             try
             {
-                return await db.TBL_CATEGORIA.Where(data => data.CAT_STATUS.Equals("A")).ToListAsync();
+                return await db.TBL_CATEGORIA.Where(data => data.cat_status.Equals("A")).ToListAsync();
             }
             catch (Exception ex)
             {
@@ -30,8 +30,8 @@ namespace ecommerce.WebASP.Logica
         {
             try
             {
-                return await db.TBL_CATEGORIA.Where(data => data.CAT_STATUS.Equals("A")
-                && data.CAT_ID.Equals(codigo)).FirstOrDefaultAsync();
+                return await db.TBL_CATEGORIA.Where(data => data.cat_status.Equals("A")
+                && data.cat_id.Equals(codigo)).FirstOrDefaultAsync();
             }
             catch (Exception ex)
             {
@@ -48,8 +48,8 @@ namespace ecommerce.WebASP.Logica
             try
             {
                 bool resultado = false;
-                _infocategoria.CAT_STATUS = "A";
-                _infocategoria.CAT_FECHACREACION = DateTime.Now;
+                _infocategoria.cat_status = "A";
+                _infocategoria.cat_fechacreacion = DateTime.Now;
                 db.TBL_CATEGORIA.Add(_infocategoria);
 
                 //actualiza el contexto de datos
@@ -70,7 +70,7 @@ namespace ecommerce.WebASP.Logica
             try
             {
                 bool resultado = false;
-                _infocategoria.CAT_FECHACREACION = DateTime.Now;
+                _infocategoria.cat_fechacreacion = DateTime.Now;
                 db.TBL_CATEGORIA.Add(_infocategoria);
 
                 //actualiza el contexto de datos
@@ -95,8 +95,8 @@ namespace ecommerce.WebASP.Logica
                 //db.TBL_CATEGORIA.Remove(_infocategoria);
 
 
-                _infocategoria.CAT_STATUS = "I";
-                _infocategoria.CAT_FECHACREACION = DateTime.Now;
+                _infocategoria.cat_status = "I";
+                _infocategoria.cat_fechacreacion = DateTime.Now;
 
                 //actualiza el contexto de datos
                 await db.SaveChangesAsync();

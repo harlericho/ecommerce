@@ -84,17 +84,18 @@
             <td style="width: 150px">Imagen
             </td>
             <td>
-                <asp:FileUpload ID="fileImagen" runat="server"/>
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"  ErrorMessage="Imagen requerida" ControlToValidate="fileImagen" ForeColor="Red">*</asp:RequiredFieldValidator>
+                <asp:FileUpload ID="FileUpload1" runat="server" onchange="showimagepreview(this)"/>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server"  ErrorMessage="Imagen requerida" ControlToValidate="FileUpload1" ForeColor="Red">*</asp:RequiredFieldValidator>
             </td>
         </tr>
         <tr>
             <td style="width: 150px">
-                <asp:Image ID="Avatar" runat="server" Height="94px" ImageUrl="~/Images/preview-icon.png" Width="101px" />
+                <img id="img" alt="" style="width:101px" src="../../../Images/preview-icon.png" />
+                <%--<asp:Image ID="Avatar" runat="server" Height="94px" ImageUrl="~/Images/preview-icon.png" Width="101px" />--%>
             </td>
-            <td>
+<%--            <td>
                 <asp:Button ID="btnMostrar" runat="server" Text="Mostrar" OnClick="btnMostrar_Click" />
-            </td>
+            </td>--%>
         </tr>
         <tr>
             <td style="width: 150px">Descripcion
@@ -134,6 +135,21 @@
         </tr>
 
     </table>
+    <script type="text/javascript">
 
+        function showimagepreview(input) {
+
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+
+                    document.getElementsByTagName("img")[0].setAttribute("src", e.target.result);
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+    </script>
 
 </asp:Content>
+

@@ -55,11 +55,11 @@ namespace ecommerce.WebASP.UserControl
                 if (_listaCategoria != null && _listaCategoria.Count > 0)
                 {
                     //ordenar con linq
-                    var data = _listaCategoria.OrderBy(lista => lista.CAT_NOMBRE).ToList();
-                    data.Insert(0, new TBL_CATEGORIA { CAT_NOMBRE = "Seleccione Categoria", CAT_ID = 0 });//inicializar regsitro del dropdownlist, empieza con 0
+                    var data = _listaCategoria.OrderBy(lista => lista.cat_nombre).ToList();
+                    data.Insert(0, new TBL_CATEGORIA { cat_nombre = "Seleccione Categoria", cat_id = 0 });//inicializar regsitro del dropdownlist, empieza con 0
                     DropDownList1.DataSource = data;
-                    DropDownList1.DataTextField = "CAT_NOMBRE";
-                    DropDownList1.DataValueField = "CAT_ID";
+                    DropDownList1.DataTextField = "cat_nombre";
+                    DropDownList1.DataValueField = "cat_id";
                     DropDownList1.DataBind();
                 }
             }

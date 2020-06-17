@@ -16,7 +16,7 @@ namespace ecommerce.WebASP.Models
     public partial class BDDCORDICARRITOEntities : DbContext
     {
         public BDDCORDICARRITOEntities()
-            : base("name=BDDCORDICARRITOEntities")
+            : base("name=BDDCORDICARRITOEntities1")
         {
         }
     
@@ -27,7 +27,7 @@ namespace ecommerce.WebASP.Models
     
         public virtual DbSet<TBL_CATEGORIA> TBL_CATEGORIA { get; set; }
         public virtual DbSet<TBL_CLIENTE> TBL_CLIENTE { get; set; }
-        public virtual DbSet<TBL_DETALLEIMPUESTO> TBL_DETALLEIMPUESTO { get; set; }
+        public virtual DbSet<TBL_DETALLEIMPUESTOS> TBL_DETALLEIMPUESTOS { get; set; }
         public virtual DbSet<TBL_DETALLEPEDIDO> TBL_DETALLEPEDIDO { get; set; }
         public virtual DbSet<TBL_DIRECCIONES> TBL_DIRECCIONES { get; set; }
         public virtual DbSet<TBL_FORMAPAGO> TBL_FORMAPAGO { get; set; }

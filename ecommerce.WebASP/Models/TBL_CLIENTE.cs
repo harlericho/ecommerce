@@ -14,17 +14,29 @@ namespace ecommerce.WebASP.Models
     
     public partial class TBL_CLIENTE
     {
-        public long CLI_ID { get; set; }
-        public string CLI_IDENTIFICACION { get; set; }
-        public string CLI_TIPOIDENTIFICACION { get; set; }
-        public string CLI_APELLIDOS { get; set; }
-        public string CLI_NOMBRES { get; set; }
-        public string CLI_GENERO { get; set; }
-        public System.DateTime CLI_FECHANACIMIENTO { get; set; }
-        public string CLI_TELEFONO { get; set; }
-        public string CLI_CELULAR { get; set; }
-        public string CLI_EMAIL { get; set; }
-        public string CLI_STATUS { get; set; }
-        public System.DateTime CLI_FECHACREACION { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBL_CLIENTE()
+        {
+            this.TBL_DIRECCIONES = new HashSet<TBL_DIRECCIONES>();
+            this.TBL_PEDIDO = new HashSet<TBL_PEDIDO>();
+        }
+    
+        public long cli_id { get; set; }
+        public string cli_identificacion { get; set; }
+        public string cli_tipoidentificacion { get; set; }
+        public string cli_apellidos { get; set; }
+        public string cli_nombres { get; set; }
+        public string cli_genero { get; set; }
+        public System.DateTime cli_fechanacimiento { get; set; }
+        public string cli_telefono { get; set; }
+        public string cli_celular { get; set; }
+        public string cli_email { get; set; }
+        public System.DateTime cli_fechacreacion { get; set; }
+        public string cli_status { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_DIRECCIONES> TBL_DIRECCIONES { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_PEDIDO> TBL_PEDIDO { get; set; }
     }
 }

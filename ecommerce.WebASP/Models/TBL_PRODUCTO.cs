@@ -14,17 +14,27 @@ namespace ecommerce.WebASP.Models
     
     public partial class TBL_PRODUCTO
     {
-        public int PRO_ID { get; set; }
-        public string PRO_CODIGO { get; set; }
-        public string PRO_NOMBRE { get; set; }
-        public decimal PRO_PRECIOCOMPRA { get; set; }
-        public decimal PRO_PRECIOVENTA { get; set; }
-        public string PRO_IMAGEN { get; set; }
-        public string PRO_DESCRIPCION { get; set; }
-        public int PRO_STOCKMINIMO { get; set; }
-        public int PRO_STOCKMAXIMO { get; set; }
-        public string PRO_STATUS { get; set; }
-        public System.DateTime PRO_FECHACREACION { get; set; }
-        public Nullable<short> CAT_ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBL_PRODUCTO()
+        {
+            this.TBL_DETALLEPEDIDO = new HashSet<TBL_DETALLEPEDIDO>();
+        }
+    
+        public int pro_id { get; set; }
+        public string pro_codigo { get; set; }
+        public string pro_nombre { get; set; }
+        public decimal pro_preciocompra { get; set; }
+        public decimal pro_precioventa { get; set; }
+        public string pro_imagen { get; set; }
+        public string pro_descripcion { get; set; }
+        public int pro_stockminimo { get; set; }
+        public int pro_stockmaximo { get; set; }
+        public System.DateTime pro_fechacreacion { get; set; }
+        public string pro_status { get; set; }
+        public Nullable<short> cat_id { get; set; }
+    
+        public virtual TBL_CATEGORIA TBL_CATEGORIA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_DETALLEPEDIDO> TBL_DETALLEPEDIDO { get; set; }
     }
 }

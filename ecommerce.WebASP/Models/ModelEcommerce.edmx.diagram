@@ -4,19 +4,29 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="5df33779cbcb43f78b1e5d80b9d66cd7" Name="Diagram1">
-        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_CATEGORIA" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_CLIENTE" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_DETALLEIMPUESTO" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_DETALLEPEDIDO" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_DIRECCIONES" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_FORMAPAGO" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_IMPUESTOS" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_PAGOS" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_PEDIDO" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_PRODUCTO" Width="1.5" PointX="8.75" PointY="0.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_ROL" Width="1.5" PointX="8.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_USUARIO" Width="1.5" PointX="8.75" PointY="8.75" IsExpanded="true" />
+      <Diagram DiagramId="ea0b5ce256de4a989fe199bfe2a09c36" Name="Diagram1">
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_CATEGORIA" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_CLIENTE" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_DETALLEIMPUESTOS" Width="1.5" PointX="10.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_DETALLEPEDIDO" Width="1.5" PointX="5.25" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_DIRECCIONES" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_FORMAPAGO" Width="1.5" PointX="6" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_IMPUESTOS" Width="1.5" PointX="8.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_PAGOS" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_PEDIDO" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_PRODUCTO" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_ROL" Width="1.5" PointX="10.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDDCORDICARRITOModel.TBL_USUARIO" Width="1.5" PointX="13" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="BDDCORDICARRITOModel.Relationship2" ManuallyRouted="false" />
+        <AssociationConnector Association="BDDCORDICARRITOModel.Relationship10" ManuallyRouted="false" />
+        <AssociationConnector Association="BDDCORDICARRITOModel.Relationship4" ManuallyRouted="false" />
+        <AssociationConnector Association="BDDCORDICARRITOModel.Relationship6" ManuallyRouted="false" />
+        <AssociationConnector Association="BDDCORDICARRITOModel.Relationship7" ManuallyRouted="false" />
+        <AssociationConnector Association="BDDCORDICARRITOModel.Relationship3" ManuallyRouted="false" />
+        <AssociationConnector Association="BDDCORDICARRITOModel.Relationship5" ManuallyRouted="false" />
+        <AssociationConnector Association="BDDCORDICARRITOModel.Relationship9" ManuallyRouted="false" />
+        <AssociationConnector Association="BDDCORDICARRITOModel.Relationship8" ManuallyRouted="false" />
+        <AssociationConnector Association="BDDCORDICARRITOModel.Relationship1" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

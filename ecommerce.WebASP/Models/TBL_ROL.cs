@@ -14,9 +14,18 @@ namespace ecommerce.WebASP.Models
     
     public partial class TBL_ROL
     {
-        public int ROL_ID { get; set; }
-        public string ROL_DESCRIPCION { get; set; }
-        public string ROL_STATUS { get; set; }
-        public System.DateTime ROL_ADD { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBL_ROL()
+        {
+            this.TBL_USUARIO = new HashSet<TBL_USUARIO>();
+        }
+    
+        public byte rol_id { get; set; }
+        public string rol_descripcion { get; set; }
+        public string rol_status { get; set; }
+        public System.DateTime rol_add { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_USUARIO> TBL_USUARIO { get; set; }
     }
 }

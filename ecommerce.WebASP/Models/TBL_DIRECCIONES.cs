@@ -14,15 +14,16 @@ namespace ecommerce.WebASP.Models
     
     public partial class TBL_DIRECCIONES
     {
-        public int DIR_ID { get; set; }
-        public string DIR_PRINCIPAL { get; set; }
-        public string DIR_SECUNDARIA { get; set; }
-        public string DIR_NUMERACION { get; set; }
-        public string DIR_REFERENCIA { get; set; }
-        public string DIR_CODIGOPOSTAL { get; set; }
-        public string DIR_STATUS { get; set; }
-        public System.DateTime DIR_FECHACREACION { get; set; }
-        public Nullable<long> CLI_ID { get; set; }
-        public string CLI_IDENTIFICACION { get; set; }
+        public int dir_id { get; set; }
+        public string dir_principal { get; set; }
+        public string dir_secundaria { get; set; }
+        public string dir_numeracion { get; set; }
+        public string dir_referencia { get; set; }
+        public string dir_codidopostal { get; set; }
+        public System.DateTime dir_fechacreacion { get; set; }
+        public string dir_status { get; set; }
+        public Nullable<long> cli_id { get; set; }
+    
+        public virtual TBL_CLIENTE TBL_CLIENTE { get; set; }
     }
 }

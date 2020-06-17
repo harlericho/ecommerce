@@ -14,13 +14,15 @@ namespace ecommerce.WebASP.Models
     
     public partial class TBL_PAGOS
     {
-        public int PAG_ID { get; set; }
-        public System.DateTime PAG_FECHA { get; set; }
-        public decimal PAG_VALOR { get; set; }
-        public string PAG_STATUS { get; set; }
-        public System.DateTime PAG_FECHACREACION { get; set; }
-        public Nullable<int> PED_ID { get; set; }
-        public Nullable<System.DateTime> PED_FECHA { get; set; }
-        public int FPA_ID { get; set; }
+        public int pag_id { get; set; }
+        public System.DateTime pag_fecha { get; set; }
+        public decimal pag_valor { get; set; }
+        public System.DateTime pag_fechacreacion { get; set; }
+        public string pag_status { get; set; }
+        public Nullable<int> ped_id { get; set; }
+        public Nullable<byte> fpa_id { get; set; }
+    
+        public virtual TBL_FORMAPAGO TBL_FORMAPAGO { get; set; }
+        public virtual TBL_PEDIDO TBL_PEDIDO { get; set; }
     }
 }

@@ -136,6 +136,16 @@
     <Content Include="Icons\save_product.png" />
     <Content Include="Images\avatar.png" />
     <Content Include="Images\preview-icon.png" />
+    <Content Include="Models\ModelEcommerce.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelEcommerce.edmx</DependentUpon>
+      <LastGenOutput>ModelEcommerce.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelEcommerce.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelEcommerce.edmx</DependentUpon>
+      <LastGenOutput>ModelEcommerce.cs</LastGenOutput>
+    </Content>
     <Content Include="UserControl\ucCategoria.ascx" />
     <Content Include="WebForms\Administracion\Producto\wfmProductoLista.aspx" />
     <Content Include="WebForms\Administracion\Producto\wfmProductoNuevo.aspx" />
@@ -147,16 +157,6 @@
       <DependentUpon>ModelEcommerce.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
-    <Content Include="Models\ModelEcommerce.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelEcommerce.Context.cs</LastGenOutput>
-      <DependentUpon>ModelEcommerce.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\ModelEcommerce.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelEcommerce.edmx</DependentUpon>
-      <LastGenOutput>ModelEcommerce.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -241,7 +241,7 @@
     <Compile Include="Models\TBL_CLIENTE.cs">
       <DependentUpon>ModelEcommerce.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\TBL_DETALLEIMPUESTO.cs">
+    <Compile Include="Models\TBL_DETALLEIMPUESTOS.cs">
       <DependentUpon>ModelEcommerce.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TBL_DETALLEPEDIDO.cs">

@@ -14,14 +14,24 @@ namespace ecommerce.WebASP.Models
     
     public partial class TBL_DETALLEPEDIDO
     {
-        public int DEP_CODIGO { get; set; }
-        public int DEP_CANTIDAD { get; set; }
-        public string DEP_DESCRIPCION { get; set; }
-        public decimal DEP_PRECIOUNITARIO { get; set; }
-        public decimal DEP_PRECIOTOTAL { get; set; }
-        public string DEP_STATUS { get; set; }
-        public Nullable<int> PRO_ID { get; set; }
-        public Nullable<int> PED_ID { get; set; }
-        public Nullable<System.DateTime> PED_FECHA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public TBL_DETALLEPEDIDO()
+        {
+            this.TBL_DETALLEIMPUESTOS = new HashSet<TBL_DETALLEIMPUESTOS>();
+        }
+    
+        public string dep_codigo { get; set; }
+        public int dep_cantidad { get; set; }
+        public string dep_descripcion { get; set; }
+        public decimal dep_preciounitario { get; set; }
+        public decimal dep_preciototal { get; set; }
+        public string dep_status { get; set; }
+        public Nullable<int> pro_id { get; set; }
+        public Nullable<int> ped_id { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TBL_DETALLEIMPUESTOS> TBL_DETALLEIMPUESTOS { get; set; }
+        public virtual TBL_PRODUCTO TBL_PRODUCTO { get; set; }
+        public virtual TBL_PEDIDO TBL_PEDIDO { get; set; }
     }
 }
