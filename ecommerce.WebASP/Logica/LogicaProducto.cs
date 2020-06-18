@@ -29,6 +29,53 @@ namespace ecommerce.WebASP.Logica
             }
         }
 
+        //listado de productos por codigo
+        public static async Task<List<TBL_PRODUCTO>> searchProductXCode(string codigo)
+        {
+            try
+            {
+                return await db.TBL_PRODUCTO.Where(data => data.pro_status.Equals("A")
+                                                    && data.pro_codigo.StartsWith(codigo)).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException("Error al consultar producto");
+            }
+        }
+        //listado de productos por nombre
+        public static async Task<List<TBL_PRODUCTO>> searchProductXNombre(string nombre)
+        {
+            try
+            {
+                return await db.TBL_PRODUCTO.Where(data => data.pro_status.Equals("A")
+                                                    && data.pro_nombre.StartsWith(nombre)).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException("Error al consultar producto");
+            }
+        }
+
+        //listado de productos por categoria
+        public static async Task<List<TBL_PRODUCTO>> searchProductXCategoria(string categoria)
+        {
+            try
+            {
+                return await db.TBL_PRODUCTO.Where(data => data.pro_status.Equals("A")
+                                                    && data.TBL_CATEGORIA.cat_nombre.StartsWith(categoria)
+                                                    ).ToListAsync();
+            }
+            catch (Exception ex)
+            {
+
+                throw new ArgumentException("Error al consultar producto");
+            }
+        }
+
+
+
         //listado por codigo
         public static async Task<TBL_PRODUCTO> getProductxId(int codigo)
         {
@@ -59,12 +106,22 @@ namespace ecommerce.WebASP.Logica
             }
         }
 
+        //secuencia de id producto
+        public static int getNextSequence()
+        {
+            var query = db.Database.SqlQuery<int>("SELECT NEXT VALUE FOR sq_ProductoId");
+            var task = query.SingleAsync();
+            int valorSequence = task.Result;
+            return valorSequence;
+        }
+
         //guardar producto
         public static async Task<bool> saveProduct(TBL_PRODUCTO _infoProducto)
         {
             try
             {
                 bool resultado = false;
+                _infoProducto.pro_id = getNextSequence();
                 _infoProducto.pro_status = "A";
                 _infoProducto.pro_fechacreacion = DateTime.Now;
                 db.TBL_PRODUCTO.Add(_infoProducto);

@@ -38,7 +38,7 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
             try
             {
                 TBL_PRODUCTO _infoProducto = new TBL_PRODUCTO();
-                _infoProducto.pro_id = 100;
+                //_infoProducto.pro_id = 102;
                 _infoProducto.cat_id = Convert.ToInt16(UC_Categoria1.DropDownList.SelectedValue);
                 _infoProducto.pro_codigo = txtCodigo.Text;
                 _infoProducto.pro_nombre = txtNombre.Text;
