@@ -12,7 +12,7 @@ namespace ecommerce.WebASP.Logica
     public class LogicaProducto
     {
         //mi contexto de datos
-        private static BDDCORDICARRITOEntities db = new BDDCORDICARRITOEntities();
+        private static BDDCORDICARRITOEntities2 db = new BDDCORDICARRITOEntities2();
 
 
         //listado de productos
