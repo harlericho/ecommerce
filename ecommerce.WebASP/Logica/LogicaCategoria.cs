@@ -10,7 +10,7 @@ namespace ecommerce.WebASP.Logica
 {
     public class LogicaCategoria
     {
-        private static BDDCORDICARRITOEntities2 db = new BDDCORDICARRITOEntities2();
+        private static BDDCORDICARRITOEntities3 db = new BDDCORDICARRITOEntities3();
         //listado de categoria
         public static async Task<List<TBL_CATEGORIA>> getAllCategory()
         {

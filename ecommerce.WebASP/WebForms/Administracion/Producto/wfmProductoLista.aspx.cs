@@ -21,7 +21,48 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
                 var _listaProductos = _taskProductos.Result;
                 loadProductos(_listaProductos);
             }
+            UC_DatosEventos();
         }
+
+        private void UC_DatosEventos()
+        {
+            GridView gridView = (GridView)this.UC_Datos1.FindControl("GridView1");
+            gridView.RowCommand += new GridViewCommandEventHandler(Uc_Datos_RowCommand);
+        }
+
+        void Uc_Datos_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            string codigo = Convert.ToString(e.CommandArgument);
+            if (e.CommandName == "Modificar")
+            {
+                //encriptar
+                Response.Redirect("wfmProductoNuevo.aspx?cod=" + codigo, true);
+            }
+            if (e.CommandName == "Eliminar")
+            {
+                TBL_PRODUCTO _infoProducto = new TBL_PRODUCTO();
+                var taskProducto = Task.Run(() => LogicaProducto.getProductxId(int.Parse(codigo)));
+                taskProducto.Wait();
+                _infoProducto = taskProducto.Result;
+                if (_infoProducto != null)
+                {
+                    Task<bool> _taskSaveProduct = Task.Run(() => LogicaProducto.deleteProduct(_infoProducto));
+                    _taskSaveProduct.Wait();
+                    var resultado = _taskSaveProduct.Result;
+                    if (resultado)
+                    {
+                       // Response.Write("<script>alert('Registro Eliminado correctamente');</script>");
+                        Task<List<TBL_PRODUCTO>> _taskProductos = Task.Run(() => LogicaProducto.getAllProduct());
+                        _taskProductos.Wait();
+                        var _listaProductos = _taskProductos.Result;
+                        loadProductos(_listaProductos);
+                    }
+                }
+            }
+        }
+
+
+
         private void loadProductos(List<TBL_PRODUCTO> _listaProductos)
         {
 
@@ -82,6 +123,16 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
                         break;
                 }
             }
+        }
+
+        protected void ImbNuevo_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("wfmProductoNuevo.aspx", true);
+        }
+
+        protected void lnkNuevo_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("wfmProductoNuevo.aspx", true);
         }
     }
 }

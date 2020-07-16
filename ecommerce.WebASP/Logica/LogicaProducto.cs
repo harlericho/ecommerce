@@ -12,7 +12,7 @@ namespace ecommerce.WebASP.Logica
     public class LogicaProducto
     {
         //mi contexto de datos
-        private static BDDCORDICARRITOEntities2 db = new BDDCORDICARRITOEntities2();
+        private static BDDCORDICARRITOEntities3 db = new BDDCORDICARRITOEntities3();
 
 
         //listado de productos
@@ -145,7 +145,6 @@ namespace ecommerce.WebASP.Logica
             {
                 bool resultado = false;
                 _infoProducto.pro_fechacreacion = DateTime.Now;
-                db.TBL_PRODUCTO.Add(_infoProducto);
 
                 //actualiza el contexto de datos
                 await db.SaveChangesAsync();
@@ -160,7 +159,7 @@ namespace ecommerce.WebASP.Logica
         }
 
         //eliminar o cambiara estado producto
-        public static async Task<bool> deleteproduct(TBL_PRODUCTO _infoProducto)
+        public static async Task<bool> deleteProduct(TBL_PRODUCTO _infoProducto)
         {
             try
             {

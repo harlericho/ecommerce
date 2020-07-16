@@ -14,6 +14,20 @@
                 </tr>
                 <tr>
                     <td>
+                        <asp:LinkButton ID="lnkNuevo" runat="server" CausesValidation="false" OnClick="lnkNuevo_Click" >Nuevo</asp:LinkButton>
+                            <asp:ImageButton ID="ImbNuevo" runat="server" ImageUrl="~/Icons/add.png" Width="30px" Height="30px"  CausesValidation="false" OnClick="ImbNuevo_Click" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;</td>
+                </tr>
+                <tr>
+                    <td>
                         <center>
                             <table>
                             <tr>

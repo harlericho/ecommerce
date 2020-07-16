@@ -13,10 +13,10 @@ namespace ecommerce.WebASP.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BDDCORDICARRITOEntities2 : DbContext
+    public partial class BDDCORDICARRITOEntities3 : DbContext
     {
-        public BDDCORDICARRITOEntities2()
-            : base("name=BDDCORDICARRITOEntities2")
+        public BDDCORDICARRITOEntities3()
+            : base("name=BDDCORDICARRITOEntities3")
         {
         }
     

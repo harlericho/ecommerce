@@ -138,7 +138,11 @@
     <Content Include="Icons\lupa.png" />
     <Content Include="Icons\save.png" />
     <Content Include="Images\avatar.png" />
+    <Content Include="Images\comprar.png" />
+    <Content Include="Images\hdd.jpg" />
+    <Content Include="Images\hp.jpg" />
     <Content Include="Images\preview-icon.png" />
+    <Content Include="Images\ram.jpg" />
     <Content Include="Models\ModelEcommerce.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelEcommerce.edmx</DependentUpon>
@@ -153,6 +157,8 @@
     <Content Include="UserControl\ucGridviewDatos.ascx" />
     <Content Include="WebForms\Administracion\Producto\wfmProductoLista.aspx" />
     <Content Include="WebForms\Administracion\Producto\wfmProductoNuevo.aspx" />
+    <Content Include="WebForms\Publico\wfmCatalogo.aspx" />
+    <Content Include="WebForms\Publico\wfmProducto.aspx" />
     <EntityDeploy Include="Models\ModelEcommerce.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ModelEcommerce.Designer.cs</LastGenOutput>
@@ -325,11 +331,24 @@
     <Compile Include="WebForms\Administracion\Producto\wfmProductoNuevo.aspx.designer.cs">
       <DependentUpon>wfmProductoNuevo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebForms\Publico\wfmCatalogo.aspx.cs">
+      <DependentUpon>wfmCatalogo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\Publico\wfmCatalogo.aspx.designer.cs">
+      <DependentUpon>wfmCatalogo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\Publico\wfmProducto.aspx.cs">
+      <DependentUpon>wfmProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\Publico\wfmProducto.aspx.designer.cs">
+      <DependentUpon>wfmProducto.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="WebForms\Administracion\Categoria\" />
-    <Folder Include="WebForms\Public\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

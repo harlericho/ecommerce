@@ -17,7 +17,31 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
         {
             if (!IsPostBack)
             {
+                if (Request["cod"]!=null)
+                {
+                    int idProducto = Convert.ToInt32(Request["cod"].ToString());
+                    loadProducto(idProducto);
+                }
+            }
+        }
 
+        private void loadProducto(int idProducto)
+        {
+            TBL_PRODUCTO _infoProducto = new TBL_PRODUCTO();
+            var task = Task.Run(()=>LogicaProducto.getProductxId(idProducto));
+            task.Wait();
+            _infoProducto = task.Result;
+            if (_infoProducto!=null)
+            {
+                lblId.Text = _infoProducto.pro_id.ToString();
+                txtCodigo.Text = _infoProducto.pro_codigo;
+                UC_Categoria1.DropDownList.SelectedValue = _infoProducto.cat_id.ToString();
+                txtNombre.Text = _infoProducto.pro_nombre;
+                txtDescripcion.Text = _infoProducto.pro_descripcion;
+                txtPrc.Text = _infoProducto.pro_preciocompra.ToString();
+                txtPrv.Text = _infoProducto.pro_precioventa.ToString();
+                txtStockMin.Text = _infoProducto.pro_stockminimo.ToString();
+                txtStockMax.Text = _infoProducto.pro_stockmaximo.ToString();
             }
         }
 
@@ -32,6 +56,8 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
             txtStockMin.Text = "";
             //Avatar.ImageUrl = "~/Images/preview-icon.png";
             UC_Categoria1.DropDownList.SelectedIndex = 0;
+            lblMensaje.Text = "";
+
         }
         private void saveProduct()
         {
@@ -64,9 +90,56 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
         }
 
 
+        private void updateProduct()
+        {
+            try
+            {
+                TBL_PRODUCTO _infoProducto = new TBL_PRODUCTO();
+                var taskProducto = Task.Run(() => LogicaProducto.getProductxId(int.Parse(lblId.Text)));
+                taskProducto.Wait();
+                _infoProducto = taskProducto.Result;
+                if (_infoProducto!=null)
+                {
+                    _infoProducto.pro_id = int.Parse(lblId.Text);
+                    _infoProducto.cat_id = Convert.ToInt16(UC_Categoria1.DropDownList.SelectedValue);
+                    _infoProducto.pro_codigo = txtCodigo.Text;
+                    _infoProducto.pro_nombre = txtNombre.Text;
+                    _infoProducto.pro_descripcion = txtDescripcion.Text;
+                    _infoProducto.pro_imagen = "C:/imagen";
+                    _infoProducto.pro_preciocompra = Convert.ToDecimal(txtPrc.Text);
+                    _infoProducto.pro_precioventa = Convert.ToDecimal(txtPrv.Text);
+                    _infoProducto.pro_stockminimo = Convert.ToInt32(txtStockMin.Text);
+                    _infoProducto.pro_stockmaximo = Convert.ToInt32(txtStockMax.Text);
+                    Task<bool> _taskSaveProduct = Task.Run(() => LogicaProducto.updateProduct(_infoProducto));
+                    _taskSaveProduct.Wait();
+                    var resultado = _taskSaveProduct.Result;
+                    if (resultado)
+                    {
+                        lblMensaje.Text = "Registro Modificado Correctamente";
+                        Response.Redirect("wfmProductoLista.aspx", true);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+
+
+
         protected void ImbGuardar_Click(object sender, ImageClickEventArgs e)
         {
-            saveProduct();
+            if (!string.IsNullOrEmpty(lblId.Text))
+            {
+                updateProduct();
+            }
+            else
+            {
+                saveProduct();
+            }
         }
 
         protected void ImbNuevo_Click(object sender, ImageClickEventArgs e)
@@ -76,7 +149,14 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
 
         protected void lnkGuardar_Click(object sender, EventArgs e)
         {
-            saveProduct();
+            if (!string.IsNullOrEmpty(lblId.Text))
+            {
+                updateProduct();
+            }
+            else
+            {
+                saveProduct();
+            }
         }
 
         protected void lnkNuevo_Click(object sender, EventArgs e)

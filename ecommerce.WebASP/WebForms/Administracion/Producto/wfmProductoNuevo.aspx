@@ -37,7 +37,7 @@
             <td style="width: 150px">Id
             </td>
             <td>
-                <asp:Label ID="lblId" runat="server" Text="#"></asp:Label>
+                <asp:Label ID="lblId" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
