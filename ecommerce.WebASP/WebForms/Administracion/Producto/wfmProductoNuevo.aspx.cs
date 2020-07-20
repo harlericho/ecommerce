@@ -17,7 +17,7 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
         {
             if (!IsPostBack)
             {
-                if (Request["cod"]!=null)
+                if (Request["cod"] != null)
                 {
                     int idProducto = Convert.ToInt32(Request["cod"].ToString());
                     loadProducto(idProducto);
@@ -28,10 +28,10 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
         private void loadProducto(int idProducto)
         {
             TBL_PRODUCTO _infoProducto = new TBL_PRODUCTO();
-            var task = Task.Run(()=>LogicaProducto.getProductxId(idProducto));
+            var task = Task.Run(() => LogicaProducto.getProductxId(idProducto));
             task.Wait();
             _infoProducto = task.Result;
-            if (_infoProducto!=null)
+            if (_infoProducto != null)
             {
                 lblId.Text = _infoProducto.pro_id.ToString();
                 txtCodigo.Text = _infoProducto.pro_codigo;
@@ -69,7 +69,44 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
                 _infoProducto.pro_codigo = txtCodigo.Text;
                 _infoProducto.pro_nombre = txtNombre.Text;
                 _infoProducto.pro_descripcion = txtDescripcion.Text;
-                _infoProducto.pro_imagen = "C:/imagen";
+
+                //validacion de la imagen
+                if (FileUpload1.HasFile)
+                {
+                    if (!string.IsNullOrEmpty(txtCodigo.Text))
+                    {
+                        try
+                        {
+                            if (FileUpload1.PostedFile.ContentType == "image/png" || FileUpload1.PostedFile.ContentType == "image/jpeg")
+                            {
+                                if (FileUpload1.PostedFile.ContentLength < 100000)
+                                {
+                                    string nombreArchivo = txtCodigo.Text + ".jpg";
+                                    FileUpload1.SaveAs(Server.MapPath("~/Images/Products/") + nombreArchivo);
+                                }
+                                else
+                                {
+                                    lblMensaje.Text = "El tamaño maximo de la imagen es de 100kb";
+                                }
+                            }
+                            else
+                            {
+                                lblMensaje.Text = "Solo se aceptan imagenes de tipo png/jpeg";
+                            }
+                        }
+                        catch (Exception)
+                        {
+
+                            lblMensaje.Text = "Error al cargar la imagen del producto";
+                        }
+                    }
+                    else
+                    {
+                        lblMensaje.Text = "El campo codigo de producto es obligatorio para la carga de la iamgen";
+                    }
+                }
+
+                _infoProducto.pro_imagen = "~/Images/Products/" + txtCodigo.Text + ".jpg";
                 _infoProducto.pro_preciocompra = Convert.ToDecimal(txtPrc.Text);
                 _infoProducto.pro_precioventa = Convert.ToDecimal(txtPrv.Text);
                 _infoProducto.pro_stockminimo = Convert.ToInt32(txtStockMin.Text);
@@ -98,14 +135,49 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
                 var taskProducto = Task.Run(() => LogicaProducto.getProductxId(int.Parse(lblId.Text)));
                 taskProducto.Wait();
                 _infoProducto = taskProducto.Result;
-                if (_infoProducto!=null)
+                if (_infoProducto != null)
                 {
                     _infoProducto.pro_id = int.Parse(lblId.Text);
                     _infoProducto.cat_id = Convert.ToInt16(UC_Categoria1.DropDownList.SelectedValue);
                     _infoProducto.pro_codigo = txtCodigo.Text;
                     _infoProducto.pro_nombre = txtNombre.Text;
                     _infoProducto.pro_descripcion = txtDescripcion.Text;
-                    _infoProducto.pro_imagen = "C:/imagen";
+                    //validacion de la imagen
+                    if (FileUpload1.HasFile)
+                    {
+                        if (!string.IsNullOrEmpty(txtCodigo.Text))
+                        {
+                            try
+                            {
+                                if (FileUpload1.PostedFile.ContentType == "image/png" || FileUpload1.PostedFile.ContentType == "image/jpeg")
+                                {
+                                    if (FileUpload1.PostedFile.ContentLength < 100000)
+                                    {
+                                        string nombreArchivo = txtCodigo.Text + ".jpg";
+                                        FileUpload1.SaveAs(Server.MapPath("~/Images/Products/") + nombreArchivo);
+                                    }
+                                    else
+                                    {
+                                        lblMensaje.Text = "El tamaño maximo de la imagen es de 100kb";
+                                    }
+                                }
+                                else
+                                {
+                                    lblMensaje.Text = "Solo se aceptan imagenes de tipo png/jpeg";
+                                }
+                            }
+                            catch (Exception)
+                            {
+
+                                lblMensaje.Text = "Error al cargar la imagen del producto";
+                            }
+                        }
+                        else
+                        {
+                            lblMensaje.Text = "El campo codigo de producto es obligatorio para la carga de la iamgen";
+                        }
+                    }
+                    _infoProducto.pro_imagen = "~/Images/Products/" + txtCodigo.Text + ".jpg";
                     _infoProducto.pro_preciocompra = Convert.ToDecimal(txtPrc.Text);
                     _infoProducto.pro_precioventa = Convert.ToDecimal(txtPrv.Text);
                     _infoProducto.pro_stockminimo = Convert.ToInt32(txtStockMin.Text);
@@ -179,6 +251,6 @@ namespace ecommerce.WebASP.WebForms.Administracion.Producto
         //    Avatar.ImageUrl = imagendata;//visualizamos la imagen bianria base 64 al url imagen
         //}
 
-        
+
     }
 }

@@ -348,6 +348,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\Products\" />
     <Folder Include="WebForms\Administracion\Categoria\" />
   </ItemGroup>
   <ItemGroup>

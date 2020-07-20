@@ -21,7 +21,7 @@
                 </tr>
                 <tr>
                     <td align="center">
-                        <asp:ImageButton ID="ImageButton2" runat="server" Width="120px" Height="50px" CommandName="Comprar" CommandArgument='<%#Eval("Precio") %>' ImageUrl="~/Images/comprar.png" />
+                        <asp:ImageButton ID="ImageButton2" runat="server" Width="120px" Height="50px" CommandName="Comprar" CommandArgument='<%#Eval("ID") %>' ImageUrl="~/Images/comprar.png" />
                     </td>
                 </tr>
             </table>
