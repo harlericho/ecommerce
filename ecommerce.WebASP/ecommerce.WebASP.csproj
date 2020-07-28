@@ -133,6 +133,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Icons\add.png" />
+    <Content Include="Icons\carrito.png" />
     <Content Include="Icons\delete.png" />
     <Content Include="Icons\edit.png" />
     <Content Include="Icons\lupa.png" />
@@ -158,6 +159,7 @@
     <Content Include="WebForms\Administracion\Producto\wfmProductoLista.aspx" />
     <Content Include="WebForms\Administracion\Producto\wfmProductoNuevo.aspx" />
     <Content Include="WebForms\Publico\wfmCatalogo.aspx" />
+    <Content Include="WebForms\Publico\wfmDetalleCompra.aspx" />
     <Content Include="WebForms\Publico\wfmProducto.aspx" />
     <EntityDeploy Include="Models\ModelEcommerce.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -228,6 +230,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Logica\clsCarrito.cs" />
     <Compile Include="Logica\LogicaCategoria.cs" />
     <Compile Include="Logica\LogicaProducto.cs" />
     <Compile Include="Models\ModelEcommerce.Context.cs">
@@ -337,6 +340,13 @@
     </Compile>
     <Compile Include="WebForms\Publico\wfmCatalogo.aspx.designer.cs">
       <DependentUpon>wfmCatalogo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForms\Publico\wfmDetalleCompra.aspx.cs">
+      <DependentUpon>wfmDetalleCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForms\Publico\wfmDetalleCompra.aspx.designer.cs">
+      <DependentUpon>wfmDetalleCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="WebForms\Publico\wfmProducto.aspx.cs">
       <DependentUpon>wfmProducto.aspx</DependentUpon>

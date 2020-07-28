@@ -33,14 +33,20 @@
                     </tr>
                     <tr>
                         <td>
+                            <asp:Label ID="lblIdProducto" runat="server" Text="" Visible="false"></asp:Label>
+                            <asp:Label ID="lblCodigoProducto" runat="server" Text="" Visible="false"></asp:Label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
                             &nbsp;</td>
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox ID="txtCantidad" TextMode="Number" min="2" maxh="20" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="txtCantidad" TextMode="Number" min="1" maxh="20" runat="server"></asp:TextBox>
                         </td>
                         <td>
-                            <asp:Button ID="btnComprar" runat="server" Text="Comprar" />
+                            <asp:Button ID="btnComprar" runat="server" Text="Comprar" OnClick="btnComprar_Click" />
                         </td>
                     </tr>
                 </table>

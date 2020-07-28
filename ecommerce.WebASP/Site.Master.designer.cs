@@ -15,13 +15,22 @@ namespace ecommerce.WebASP
     {
 
         /// <summary>
-        /// HeadContent control.
+        /// imbCompras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
+        protected global::System.Web.UI.WebControls.ImageButton imbCompras;
+
+        /// <summary>
+        /// lblContador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblContador;
 
         /// <summary>
         /// MainContent control.

@@ -11,7 +11,7 @@ namespace ecommerce.WebASP.WebForms.Publico
 {
 
 
-    public partial class wfmProducto
+    public partial class wfmDetalleCompra
     {
 
         /// <summary>
@@ -24,75 +24,48 @@ namespace ecommerce.WebASP.WebForms.Publico
         protected global::System.Web.UI.WebControls.Label Label1;
 
         /// <summary>
-        /// imgProducto control.
+        /// grVDetalleCompra control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgProducto;
+        protected global::System.Web.UI.WebControls.GridView grVDetalleCompra;
 
         /// <summary>
-        /// lblNombre control.
+        /// lblSubTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombre;
+        protected global::System.Web.UI.WebControls.Label lblSubTotal;
 
         /// <summary>
-        /// lblDescripcion control.
+        /// lblIva0 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDescripcion;
+        protected global::System.Web.UI.WebControls.Label lblIva0;
 
         /// <summary>
-        /// lblPrecio control.
+        /// lblIva12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrecio;
+        protected global::System.Web.UI.WebControls.Label lblIva12;
 
         /// <summary>
-        /// lblIdProducto control.
+        /// lblTotal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblIdProducto;
-
-        /// <summary>
-        /// lblCodigoProducto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCodigoProducto;
-
-        /// <summary>
-        /// txtCantidad control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCantidad;
-
-        /// <summary>
-        /// btnComprar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnComprar;
+        protected global::System.Web.UI.WebControls.Label lblTotal;
     }
 }
