@@ -20,7 +20,7 @@
                         <td>
                             <asp:LinkButton ID="lnkNuevo" runat="server" CausesValidation="false" OnClick="lnkNuevo_Click">Nuevo</asp:LinkButton>
                             <asp:ImageButton ID="ImbNuevo" runat="server" ImageUrl="~/Icons/add.png" Width="30px" Height="30px" OnClick="ImbNuevo_Click" CausesValidation="false" />
-                        </td>
+                        &nbsp;</td>
                         <td>
                             <asp:LinkButton ID="lnkGuardar" runat="server" OnClick="lnkGuardar_Click">Guardar</asp:LinkButton>
                             <asp:ImageButton ID="ImbGuardar" runat="server" ImageUrl="~/Icons/save.png" Width="30px" Height="30px" OnClick="ImbGuardar_Click" />

@@ -36,5 +36,13 @@
               <b>Total compra $: </b>  <asp:Label ID="lblTotal" runat="server" Text="0.00" ForeColor="Green"></asp:Label>
             </td>
         </tr>
+            <tr>
+                <td>
+                    <asp:ImageButton ID="ImageButton1" runat="server" Width="150px" Height="100px" ImageUrl="~/Icons/unnamed.png" OnClick="ImageButton1_Click"/>
+                </td>
+                <td>
+                    <asp:Label ID="lblMensaje" runat="server" Text="" ForeColor="Red"></asp:Label>
+                </td>
+            </tr>
     </table>
 </asp:Content>

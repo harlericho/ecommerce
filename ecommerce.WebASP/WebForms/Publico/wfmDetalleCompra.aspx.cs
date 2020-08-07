@@ -48,7 +48,7 @@ namespace ecommerce.WebASP.WebForms.Publico
                 {
                     No = data.numeroProducto,
                     Codigo = data.codigoProducto,
-                    Cantidad=data.cantidadProducto,
+                    Cantidad = data.cantidadProducto,
                     Producto = data.nombreProducto,
                     Precio = data.precioProducto,
                     Valor_Total = data.valorTotal
@@ -60,6 +60,26 @@ namespace ecommerce.WebASP.WebForms.Publico
             lblIva12.Text = iva12.ToString("0.00");
             lblTotal.Text = total.ToString("0.00");
         }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            if (!lblTotal.Text.Equals("0.00"))
+            {
+                List<clsDetalleCompra> _listaCompras = new List<clsDetalleCompra>();
+                _listaCompras = (List<clsDetalleCompra>)Session["Compras"];
+                clsDetalleCompra _infoCompras = new clsDetalleCompra();
+                _infoCompras.subTotalCompra = decimal.Parse(lblSubTotal.Text);
+                _infoCompras.TotalCompra = decimal.Parse(lblTotal.Text);
+                _listaCompras.Add(_infoCompras);
+                Session["Compras"] = _listaCompras;
+                Response.Redirect("wfmBuscarCliente.aspx", true);
+            }
+            else
+            {
+                lblMensaje.Text = "Realize una compra al carrito";
+            }
+        }
+
 
 
 

@@ -14,10 +14,14 @@ namespace ecommerce.WebASP
         {
             if (!IsPostBack)
             {
-                if (Session["Carrito"] == null)
+                if ((Session["Carrito"] == null) && (Session["Compras"]==null))
                 {
                     List<clsCarrito> _listaCarrito = new List<clsCarrito>();
                     Session["Carrito"] = _listaCarrito;
+                    List<clsDetalleCompra> _listaCompras = new List<clsDetalleCompra>();
+                    Session["Compras"] = _listaCompras;
+                    List<clsCliente> _listaClientes = new List<clsCliente>();
+                    Session["Cliente"] = _listaClientes;
                 }
                 else
                 {
