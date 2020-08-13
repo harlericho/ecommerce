@@ -11,7 +11,7 @@ namespace ecommerce.WebASP.Logica
     public class LogicaPedido
     {
         //mi contexto de datos
-        private static BDDCORDICARRITOEntities3 db = new BDDCORDICARRITOEntities3();
+        private static BDDCORDICARRITOEntities db = new BDDCORDICARRITOEntities();
 
         //listado de pedidos
         public static async Task<List<TBL_PEDIDO>> getAllPedidos()

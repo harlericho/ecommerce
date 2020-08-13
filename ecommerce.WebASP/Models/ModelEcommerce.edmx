@@ -632,7 +632,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="BDDCORDICARRITOEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BDDCORDICARRITOEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="TBL_CATEGORIA" EntityType="Self.TBL_CATEGORIA" />
           <EntitySet Name="TBL_CLIENTE" EntityType="Self.TBL_CLIENTE" />
           <EntitySet Name="TBL_DETALLEIMPUESTOS" EntityType="Self.TBL_DETALLEIMPUESTOS" />
@@ -691,7 +691,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BDDCORDICARRITOModelStoreContainer" CdmEntityContainer="BDDCORDICARRITOEntities3">
+        <EntityContainerMapping StorageEntityContainer="BDDCORDICARRITOModelStoreContainer" CdmEntityContainer="BDDCORDICARRITOEntities">
           <EntitySetMapping Name="TBL_CATEGORIA">
             <EntityTypeMapping TypeName="BDDCORDICARRITOModel.TBL_CATEGORIA">
               <MappingFragment StoreEntitySet="TBL_CATEGORIA">
